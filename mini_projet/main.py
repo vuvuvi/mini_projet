@@ -3,13 +3,14 @@
 
 from random import randint
 
-
+score = 0
 player = Actor("joueur")
 player.pos = [550, 550]
 
 def draw():
     screen.clear()
     player.draw()
+    screen.draw.text(str(score), (20, 20))
 
 def on_mouse_move(pos):
     player.pos = [pos[0], player.pos[1]]
@@ -17,6 +18,7 @@ def on_mouse_move(pos):
 
 #collide
 
+
 #compteur de score 
 
-#screen.draw.text("hello world", (20, 100))
+
