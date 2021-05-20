@@ -9,8 +9,8 @@ fruit_score = Actor("fruit1_score")
 fruit_score.pos = [720,50]
 score = 0
 player = Actor("joueur", anchor = ["right", "top"] )
-player.pos = [550, 550]
-kunai = Actor("kunai")
+player.pos = [520, 500]
+
 fruit1 = Actor("fruit1")
 bombe = Actor("bombe")
 
@@ -29,9 +29,7 @@ def draw():
     
     for kunai in all_kunai:
         kunai.draw()
-    if kunai != None:
-        kunai.draw()
-
+ 
     if fruit1 != None:
         fruit1.draw()
 
@@ -41,7 +39,6 @@ def on_mouse_move(pos):
     player.pos = [pos[0], player.pos[1]]
 
 def on_mouse_down(pos):
-    print ("Click")
     kunai = Actor ("kunai", anchor = ["right", "bottom"])
     kunai.pos = player.pos
     all_kunai.append(kunai)
@@ -53,10 +50,6 @@ def update(dt):
         new_y = kunai.pos [1] + kunai_speed [1]
         kunai.pos = [new_x, new_y]
 
-    new_x = kunai.pos [0] + kunai_speed [0]
-    new_y = kunai.pos [1] + kunai_speed [1]
-
-    kunai.pos = [new_x, new_y]
     
 for fruit1 in all_fruits:
     if kunai.colliderect(fruit1):
