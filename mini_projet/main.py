@@ -16,6 +16,9 @@ bombe = Actor("bombe")
 
 all_fruits = []
 all_bombs = []
+kunai_speed = [0, 3]
+all_kunai = []
+
 
 def draw():
     screen.clear()
@@ -34,6 +37,18 @@ def on_mouse_move(pos):
     player.pos = [pos[0], player.pos[1]]
 
 
+def on_mouse_down(pos):
+    print ("Click")
+    kunai.draw()
+    kunai.pos = player.pos
+
+
+def update(dt):
+
+    new_x = kunai.pos [0] + kunai_speed [0]
+    new_y = kunai.pos [1] + kunai_speed [1]
+
+    kunai.pos = [new_x, new_y]
     
 for fruit1 in all_fruits:
     if kunai.colliderect(fruit1):
